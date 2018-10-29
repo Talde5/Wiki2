@@ -9,45 +9,21 @@
 		<script src="assets/js/main.js"></script>
 		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	</head>
-	<body class="is-preload"> 
+		<body id="body" class="body-completo-diurno"> 
 		<a href="#" id="js_up" class="boton-subir">
   			<i class="fa fa-rocket" aria-hidden="true"></i>
 		</a>
 		<div id="wrapper">
 			<div id="main">
 				<div class="inner">
-					<header id="header">
-						<div id="fullpage">  
-							<div class="section">
-								<div class="time-circle">
-									<div class="sun"></div>
-									<div class="moon">
-										<div></div>
-										<div></div>
-										<div></div>
-									</div>
-									<div class="stars">
-										<div></div>
-										<div></div>
-										<div></div>
-										<div></div>
-										<div></div>
-										<div></div>
-										<div></div>
-									</div>
-									<div class="water"></div>
-								</div>
-							    <div id="switch">
-							      	<div id="circle"></div>
-							    </div>
-							</div>
-						</div>
+					<header id="header" class="header-diurno">
 						<a href="index.html" class="logo"><strong>Wiki2</strong> Talde5</a>
 						<ul class="icons">
 							<li><a href="#wordpress" class="icon fa-wordpress"></a></li>
 							<li><a href="#prestashop" class="icon fa-shopping-cart"></a></li>
 							<li><a href="#owncloud" class="icon fa-cloud"></a></li>
 							<li><a href="https://github.com/Talde5/Wiki2" target="_blank" class="icon fa-github"></a></li>
+							<li><a class="icon fa-adjust" id="boton" onclick="nocturno_diurno()"></a></li>
 						</ul>
 					</header>
 					<section id="banner">

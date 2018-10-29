@@ -13,3 +13,15 @@ $(window).scroll(function(){
   				},700);
   				return false;
 			});
+
+function nocturno_diurno() {
+  
+  if (document.getElementById("body").className == "body-completo-diurno") {
+    document.getElementById("body").className = "body-completo-nocturno";
+    document.getElementById("header").className = "header-nocturno";
+  } else {
+    document.getElementById("body").className = "body-completo-diurno";
+    document.getElementById("header").className = "header-diurno";
+
+  }
+}
