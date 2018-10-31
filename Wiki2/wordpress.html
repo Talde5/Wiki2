@@ -38,8 +38,64 @@
 									<hr class="major wordpress" />
 
 									<h2>¿Cómo se instala WordPress?</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+									<h3>Crear una Base de Datos y Usuario para Wordpress</h3>
+									<p>Lo primero que haremos será conectarnos a la base de datos con nuestro usuario root. Para eso usaremos el siguiente comando .</p>
+									<img src="imagenesinstal/Wordpress/Wordpress1.png">
+									<p>Lo siguiente que haremos sera crear una base de datos con el comando CREATE DATABASE.</p>
+									<p>Crearemos esta cuenta, configuraremos una contraseña, y le daremos acceso a la base de datos creada previamente. Podemos hacer esto escribiendo los siguientes comandos. Y para finalizar actualizaremos los privilegios con el comando FLUSH PRIVILEGES y con el comando exit saldremos de la base de datos.</p>
+									<img src="imagenesinstal/Wordpress/Wordpress2.png">
+									<p>Después de salir de la base de datos utilizaremos el comando update .</p>
+									<img src="imagenesinstal/Wordpress/Wordpress3.png">
+									<h3>Instalar Extensiones Adicionales para PHP</h3>
+									<p>Despues instalaremos algunas de las extensiones de PHP para utilizar con WordPress  .</p>
+									<img src="imagenesinstal/Wordpress/Wordpress4.png">
+									<p>Nota: 
+
+									Cada plugin de WordPress cuenta con su propio conjunto de requerimientos. Algunos requieren que algunos paquetes adicionales de PHP sean instalados .</p>
+									<p>Ahora reiniciaremos Apache para que reconozca las nuevas extensiones en la próxima sección .</p>
+									<img src="imagenesinstal/Wordpress/Wordpress5.png">
+									<h3>Ajustar la Configuración de Apache para Permitir Sobre-escritura y Re-escritura para .htaccess </h3>
+									<p>Lo que haremos a continuacion sera habilitar el uso de los archivos .htaccess, adicionalmente, habilitaremos mod_rewrite, el cual es necesario para que los enlaces permanentes de WordPress funcionen correctamente.</p>
+									<p>Estos archivos los usa wordpress para comunicarse con el servidor web. </p>
+									<p>Para hacer esto abriremos el archivo de configuracion primario de apache con el comando.</p>
+									
+									<img src="imagenesinstal/Wordpress/Wordpress6_1.png">
+									<p>Dentro del archivo buscaremos el bloque directory y escribiremos AllowOverride All en el  .</p>
+									<img src="imagenesinstal/Wordpress/Wordpress6.png">
+									<p>Guardaremos el archivo y saldremos de el.  </p>
+									<p>Lo siguiente, será habilitar mod_rewrite para poder utilizar la función de enlaces permanentes de WordPress escribiendo el siguiente comando.</p>
+									<img src="imagenesinstal/Wordpress/Wordpress7.png">
+									<p>Aprovecharemos y reiniciaremos apache para que implemente los cambios hechos hasta ahora. </p>
+									<h3>Descargar WordPress </h3>
+									<p>Ahora descargaremos wordpress en una carpeta en la que tengamos permisos (en nuestro caso la instalaremos en la misma que instalamos el apache.) </p>
+									<img src="imagenesinstal/Wordpress/Wordpress8.png">
+									<p>Una vez terminada la instalación  extraiga el archivo comprimido para crear la estructura de directorios de WordPress con este comando:</p>
+									<img src="imagenesinstal/Wordpress/Wordpress9.png">
+									<p>Ahora utilizaremos el comando chown para cambiar todos los permisos de las carpeta wordpress utilizando el siguiente comando: </p>
+									<p>Sudo chown –R username:group directory </p>
+									<img src="imagenesinstal/Wordpress/Wordpress10.png">
+									<p>Lo usaremos para que todos los usuarios del grupo tengan permisos. </p>
+									<h3>Completar la Instalación a través de la Interfaz Web</h3>
+									<p>Ahora que la configuración del servidor está completa, podemos concluir el proceso de instalación desde la interfaz web.</p>
+									<p>En su navegador, vaya al dominio o la dirección IP pública de su servido. </p>
+									<p>Ahora tendrá que elegir el idioma que quieras para su wordpres. </p>
+									<img src="imagenesinstal/Wordpress/Worpress11.png">
+									<p>Después de elegir el idioma continue pasando las páginas hasta llegar a la mostrada a continuación:  </p>
+									<img src="imagenesinstal/Wordpress/Wordpress12.png">
+									<p>Después de rellenarla pasa la pagina y habrás terminado la instalación  . </p>
+									<img src="imagenesinstal/Wordpress/Wordpress13.png">
+									
+
+
+
+
+
+
+
+
+
+
+
 
 									<hr class="major wordpress" />
 
