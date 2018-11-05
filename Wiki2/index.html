@@ -4,7 +4,9 @@
 		<title>Wiki2</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/ordenador.css" media="screen and (max-width:1680px) and (min-width: 981px)" />
+		<link rel="stylesheet" href="assets/css/tablet.css" media="screen and (max-width: 980px) and (min-width: 737px)"/>
+		<link rel="stylesheet" href="assets/css/movil.css" media="screen and (max-width: 736px) and (min-width: 1px)"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="assets/js/main.js"></script>
 		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -17,7 +19,7 @@
 			<div id="main">
 				<div class="inner">
 					<header id="header" class="header-diurno">
-						<a href="index.html" class="logo"><strong>Wiki2</strong> Talde5</a>
+						<a class="logo"><strong>Wiki2</strong> Talde5</a>
 						<ul class="icons">
 							<li><a href="#wordpress" class="icon fa-wordpress"></a></li>
 							<li><a href="#prestashop" class="icon fa-shopping-cart"></a></li>
@@ -36,10 +38,10 @@
 						</div>
 					</section>
 					<section>
-						<header class="major" id="wordpress">
+						<header class="major" >
 							<h2>Instalaciones</h2>
 						</header>
-						<article>
+						<article id="wordpress">
 							<h1>WordPress</h1>
 							<img src="images/wordpress.png" class="wordpress" />
 								<p>En esta Wiki os enseñaremos cómo instalar WordPress en un servidor Ubuntu paso por paso.</p>
@@ -51,15 +53,61 @@
 								<p>Su gran popularidad radica en que es una plataforma sencilla pero muy potente que nos ofrece muchas posibilidades para crear, personalizar y llevar a nuestros sitios web al nivel que queramos.</p>
 							<hr class="major wordpress" />
 							<h2>¿Cómo se instala WordPress?</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-								<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+								<p>Lo primero  que haremos será instalar <strong>MYSQL</strong>.</p>
+									<img src="images/MySQL/mysqlserver.png">
+								<p> Despues escribiremos la contraseña del root dos veces.</p>
+									<img src="images/MySQL/mysqlpasswd.png">
+									<img src="images/MySQL/mysqlpasswdrepeat.png">
+								<p>Y para acabar actualizaremos.</p>
+									<img src="images/MySQL/mysqlpasswdrepeat.png">
+								<p>Lo siguiente que haremos será conectarnos a la base de datos con nuestro usuario root. Para eso usaremos el siguiente comando.</p>
+									<img src="images/Wordpress/Wordpress1.png">
+								<p>Lo siguiente que haremos sera crear una base de datos con el comando <strong>CREATE DATABASE</strong>.</p>
+								<p>Crearemos esta cuenta, configuraremos una contraseña, y le daremos acceso a la base de datos creada previamente. Podemos hacer esto escribiendo los siguientes comandos. Y para finalizar actualizaremos los privilegios con el comando <strong>FLUSH PRIVILEGES</strong> y con el comando exit saldremos de la base de datos.</p>
+									<img src="images/Wordpress/Wordpress2.png">
+								<p>Después de salir de la base de datos utilizaremos el comando <strong>update</strong>.</p>
+									<img src="images/Wordpress/Wordpress3.png">
+							<h3>Instalar Extensiones Adicionales para PHP</h3>
+								<p>Después instalaremos algunas de las extensiones de <strong>PHP</strong> para utilizar con <strong>WordPress</strong>.</p>
+									<img src="images/Wordpress/Wordpress4.png">
+								<p>Nota: Cada plugin de WordPress cuenta con su propio conjunto de requerimientos. Algunos requieren que algunos paquetes adicionales de PHP sean instalados.</p>
+								<p>Ahora reiniciaremos Apache para que reconozca las nuevas extensiones en la próxima sección.</p>
+									<img src="images/Wordpress/Wordpress5.png">
+							<h3>Ajustar la Configuración de Apache para Permitir Sobre-escritura y Re-escritura para .htaccess </h3>
+								<p>Lo que haremos a continuacion sera habilitar el uso de los archivos <strong>.htaccess</strong>, adicionalmente, habilitaremos <strong>mod_rewrite</strong>, el cual es necesario para que los enlaces permanentes de <strong>WordPress</strong> funcionen correctamente.</p>
+								<p>Estos archivos los usa Wordpress para comunicarse con el <strong>servidor web</strong>.</p>
+								<p>Para hacer esto abriremos el <strong>archivo de configuración primario de Apache</strong> con este comando.</p>
+									<img src="images/Wordpress/Wordpress6_1.png">
+								<p>Dentro del archivo buscaremos el bloque <strong>directory</strong> y escribiremos <strong>AllowOverride All</strong> en él.</p>
+									<img src="images/Wordpress/Wordpress6.png">
+								<p>Guardaremos el archivo y saldremos.</p>
+								<p>Lo siguiente, será habilitar <strong>mod_rewrite</strong> para poder utilizar la función de enlaces permanentes de WordPress escribiendo el siguiente comando.</p>
+									<img src="images/Wordpress/Wordpress7.png">
+								<p>Aprovecharemos y reiniciaremos apache para que implemente los cambios hechos hasta ahora.</p>
+							<h3>Descargar WordPress </h3>
+								<p>Ahora descargaremos <strong>Wordpress</strong> en una carpeta en la que tengamos permisos (en nuestro caso la instalaremos en la misma que instalamos Apache.)</p>
+									<img src="images/Wordpress/Wordpress8.png">
+								<p>Una vez terminada la instalación  extraiga el archivo comprimido para crear la estructura de directorios de WordPress con este comando:</p>
+									<img src="images/Wordpress/Wordpress9.png">
+								<p>Ahora utilizaremos el comando <strong>chown</strong> para cambiar todos los permisos de las carpeta Wordpress utilizando el siguiente comando:</p>
+									<img src="images/Wordpress/Wordpress10.png">
+								<p>Lo usaremos para que todos los usuarios del grupo tengan permisos.</p>
+							<h3>Completar la Instalación a través de la Interfaz Web</h3>
+								<p>Ahora que la configuración del servidor está completa, podemos concluir el proceso de instalación desde la <strong>interfaz web</strong>.</p>
+								<p>En el navegador, vamos al <strong>dominio</strong> o la <strong>dirección IP pública</strong> del servidor.</p>
+								<p>Ahora tendrá que elegir el idioma que quieras para su <strong>Wordpress</strong>.</p>
+									<img src="images/Wordpress/Worpress11.png">
+								<p>Después de elegir el idioma continue pasando las páginas hasta llegar a la mostrada a continuación:  </p>
+									<img src="images/Wordpress/Wordpress12.png">
+								<p>Después de rellenarla pasa la pagina y habrás terminado la instalación.</p>
+									<img src="images/Wordpress/Wordpress13.png">
 							<hr class="major wordpress" />
 							<h2>Problemas y soluciones</h2>
 								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
 							<hr class="major " />
-						<article>
-							<h1 id="prestashop">PrestaShop</h1>
+						<article id="prestashop">
+							<h1 >PrestaShop</h1>
 							<img src="images/prestashop.png" class="prestashop" />
 								<p>En esta Wiki os enseñaremos cómo instalar PrestaShop en un servidor Ubuntu paso por paso.</p>
 								<p>Además del proceso de instalación, encontraréis un vídeo explicando el proceso desde cero.</p>
@@ -70,8 +118,29 @@
 								<p>Este software ofrece más de 310 funciones integradas, incluyendo la gestión de inventario de productos, la navegación por capas, plantillas personalizables, marketplaces, análisis y presentación de informes, webservice, reglas de la promoción, gestión multi-tienda y gestión del retorno. Una de las razones por las que es tan popular es debido a que ofrece las herramientas más importantes de una tienda online de manera automática y sencilla.</p>
 							<hr class="major prestashop" />
 							<h2>¿Cómo se instala prestashop?</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-								<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+								<p>Creamos una carpeta con su nombre en <strong>/var/www/html/</strong> y descargamos la version de <strong>prestashop1.7.4.3.zip</strong>, para luego extraer su contenido.</p>
+									<img src="images/PrestaShop/crearcarpeta.png">
+									<img src="images/PrestaShop/instalprestashop.png">
+								<p>Para poder descomprimir el fichero, necesitaremos del paquete <strong>unzip</strong> que deberemos instalar. </p>
+									<img src="images/PrestaShop/prestashop2.png">
+								<p>Extraemos el contenido del paquete que acabamos de descargar en nuestra carpeta en el directorio.</p>
+									<img src="images/PrestaShop/unzip.png">
+								<p>Después de instalarlo borraremos la carpeta <strong>install</strong> de todas las descargadas.</p>
+									<img src="images/PrestaShop/prestashop18.png">
+								<p>Llegados a este punto ya podemos abrir un navegador en nuestro equipo e introducir lo siguiente (URL <strong>http://ladireccionIpdeNuestroServidor/prestashop</strong>), para que podamos seguir el proceso de instalación que os muestro en las siguientes capturas de pantalla.</p>
+									<img src="images/PrestaShop/prestashop10.png">
+								<p>En el primer paso escogeremos el <strong>idioma</strong>.</p>
+									<img src="images/PrestaShop/prestashop11.png">
+								<p>En el segundo paso aceptaremos licencia: <strong>Acepto los términos y condiciones arriba indicados</strong>.</p>
+									<img src="images/PrestaShop/prestashop12.png">
+								<p>En el tercer paso comprobaremos que cumplimos: <strong>Compatibilidad del sistema</strong>.</p>
+									<img src="images/PrestaShop/prestashop13.png">
+								<p>En el cuarto paso facilitaremos <strong>los datos de la tienda</strong>.</p>
+									<img src="images/PrestaShop/prestashop14.png">
+								<p>En el quinto paso indicaremos los datos de la <strong>Base de Datos</strong> que hemos creado antes y le daremos a comprobar, si todo sale correcto seguimos con instalación.</p>
+									<img src="images/PrestaShop/prestashop15.png">
+								<p>En el sexto paso ya se instala nuestro <strong>Prestashop</strong>, veremos una barra de progreso como esta.</p>
+									<img src="images/PrestaShop/prestashop15.png">
 							<hr class="major prestashop" />
 							<h2>Problemas y soluciones</h2>
 								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
@@ -89,18 +158,59 @@
 								<p>OwnCloud es un programa multiplataforma,muy similar al popular DropBox, el cual al instalarlo sincroniza los archivos que queramos con la nube, a los cuales también podremos acceder desde un dispositivo móvil o cualquier ordenador conectado a internet, donde podremos compartir nuestros archivos públicamente con o sin contraseñas, pero existe una gran diferencia frente a DropBox, OwnCloud se aloja en nuestro propio servidor, con lo que la seguridad y privacidad esta asegurada.</p>
 							<p>Pero OwnCloud no sólo sirve para sincronizar nuestros archivos, si no que también podemos encontrar herramientas como editor de texto, reproductor o calendario.</p>
 							<hr class="major owncloud" />
-							<h2>¿Cómo se instala owncloud?</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-								<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<h2>¿Cómo se instala OwnCloud?</h2>
+								<p>Nosotros vamos a empezar a instalar una <strong>shell</strong> conocida como <strong>fish</strong>.</p>
+									<img src="images/OwnCloud/OwnCloud1.png">
+									<img src="images/OwnCloud/Owncloud2.png">
+								<p>Para continuar instalaremos <strong>Lamp</strong> para que <strong>Owncloud</strong> pueda funcionar.</p>
+									<img src="images/OwnCloud/Owncloud3.png">
+									<img src="images/OwnCloud/Owncloud4.png">
+								<p>¿Cambiar la contraseña de root? pon <strong>n</strong></p> 
+									<img src="images/OwnCloud/Owncloud5.png">
+								<p>¿Quitar los usuarios anónimos? pon <strong>y</strong></p>
+									<img src="images/OwnCloud/Owncloud6.png">
+								<p>¿Deshabilitar el login del root remotamente? pon <strong>y</strong></p>
+								<p>¿Eliminar el testeo y acceso a la base de datos de prueba? pon <strong>y</strong></p>
+									<img src="images/OwnCloud/Owncloud7.png">
+								<p>¿Recargar los privilegios de las tablas? pon <strong>y</strong></p>
+									<img src="images/OwnCloud/Owncloud8.png">
+								<p>Ahora instalaremos las siguientes dependencias de <strong>PHP</strong>.</p>
+									<img src="images/OwnCloud/Owncloud9.png">
+								<p>Ahora necesitamos habilitar los módulos de <strong>Apache2 mod_rewrite</strong> y <strong>mod_headers</strong> para que <strong>OwnCloud</strong> funcione con normalidad.</p>
+									<img src="images/OwnCloud/Owncloud10.png">
+								<p>Por último editaremos la configuración de <strong>Apache2</strong> para que las normas <strong>rewrite</strong> de <strong>OwnCloud</strong> funcionen.</p>
+									<img src="images/OwnCloud/Owncloud11_1.png">
+									<img src="images/OwnCloud/Owncloud11_2.png">
+								<p>Y reiniciaremos <strong>Apache</strong>.</p>
+									<img src="images/OwnCloud/Owncloud12.png">
+							<h3>Instalacion de OwnCloud</h3>
+								<p>Hay que bajar la <strong>última versión</strong>, extraerla, moverla a la carpeta que le corresponde y darle los permisos adecuados.  </p>
+									<img src="images/OwnCloud/Owncloud13.png">
+									<img src="images/OwnCloud/Owncloud14.png">
+									<img src="images/OwnCloud/Owncloud15.png">
+								<p>Ahora vamos a crear la base de datos de <strong>OwnCloud</strong> con el comando:</p>
+								<p><strong>mysql -u root –p</strong></p>
+								<p>Y crearemos la <strong>base de datos</strong>.</p>
+									<img src="images/OwnCloud/Owncloud16.png">
+								<p>Ahora ya podremos salir y configurar <strong>OwnCloud</strong>.</p>
+								<p>Usaremos nuestro navegador web para entrar al servidor, recordad que la ip se consigue con el comando <strong>hostname</strong>.</p>
+									<img src="images/OwnCloud/Owncloud17.png">
+								<p>Aquí crearemos una cuenta de <strong>administrador</strong>, dejaremos el directorio de datos tal cual y rellenaremos la configuración de la base de datos de la siguiente manera:  </p>
+								<p><strong>owncloud</strong> (nombre de usuario) </p>
+								<p><strong>contraseña</strong> (de la base de datos)  </p>
+								<p><strong>owncloud</strong> (nombre de la base de datos) </p>
+								<p><strong>localhost</strong></p>
+									<img src="images/OwnCloud/owncloud18_1.png">
+								<p>Por ultimo hacemos click en completar instalación y habremos acabado.</p>
+									<img src="images/OwnCloud/Owncloud18.png">
 							<hr class="major owncloud" />
 							<h2>Problemas y soluciones</h2>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+								<p> Durante la instalacion de <strong>OwnCloud</strong> cada vez que nos descargabamos los paquetes de <strong>PHP</strong> se descargaban rotos. La única manera de solucionarlo que encontramos fué volver a instalar todo de cero.</p>
 						</article>
 					</section>
 					<hr class="major">
 					<footer id="footer">
-						<p class="copyright">&copy; Talde5 Ander Itza - Jon Benjamin - Andrea Fernandez</p>
+						<p class="copyright">&copy; Talde5 | Ander Itza - Jon Benjamin - Andrea Fernandez</p>
 					</footer>
 				</div>
 			</div>
